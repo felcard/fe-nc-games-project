@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/User";
-import { getUSers } from "../tools/api";
+import { getUsers } from "../tools/api";
 
 export default function Auth() {
   const { setUser } = useContext(UserContext);
@@ -8,7 +8,7 @@ export default function Auth() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUSers().then((users) => {
+    getUsers().then((users) => {
       setUsers(users);
     });
   }, []);
