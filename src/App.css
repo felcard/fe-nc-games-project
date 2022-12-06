@@ -41,6 +41,7 @@ body {
 }
 @media only screen and (min-width: 768px) {
   #review--txt {
+    margin-top: 0.2em;
     font-size: 1.5em;
   }
   #reviews--grid {
@@ -54,12 +55,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 50%;
   }
   .review--headings {
     width: 100%;
     margin: 0.4em;
     display: flex;
     justify-content: space-around;
+  }
+  #review--votes {
+    margin-top: 0.2em;
+    font-size: 1.5em;
   }
 }

@@ -24,12 +24,12 @@ export default function Review() {
           {reviewUnit.designer}
         </p>
         <p>
-          <strong>Owner: </strong>
+          <strong>Game Owner: </strong>
           {reviewUnit.owner}
         </p>
       </div>
       <p id="review--txt">Review:{reviewUnit.review_body}</p>
-      <p>Votes:{reviewUnit.votes}</p>
+      <p id="review--votes">Votes:{reviewUnit.votes}</p>
     </main>
   );
 }
