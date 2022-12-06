@@ -15,3 +15,9 @@ export const getUSers = () => {
     return res.data.users;
   });
 };
+
+export const getCategories = () => {
+  return gamesApi.get("/categories").then((res) => {
+    return res.data.categories;
+  });
+};
