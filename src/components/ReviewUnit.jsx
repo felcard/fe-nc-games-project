@@ -6,7 +6,6 @@ export default function ReviewUnit({ review }) {
       <p>Category:{review.category}</p>
       <p>Designer:{review.designer}</p>
       <p>Owner:{review.owner}</p>
-      <p>Review:{review.body}</p>
       <p>Votes:{review.votes}</p>
     </div>
   );
