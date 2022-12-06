@@ -14,9 +14,20 @@ export default function Review() {
     <main className="review--review-unit">
       <h2>{reviewUnit.title}</h2>
       <img src={reviewUnit.review_img_url} alt={review.title} />
-      <p>Category:{reviewUnit.category}</p>
-      <p>Designer:{reviewUnit.designer}</p>
-      <p>Owner:{reviewUnit.owner}</p>
+      <div className="review--headings">
+        <p>
+          <strong>Category: </strong>
+          {reviewUnit.category}
+        </p>
+        <p>
+          <strong>Designer: </strong>
+          {reviewUnit.designer}
+        </p>
+        <p>
+          <strong>Owner: </strong>
+          {reviewUnit.owner}
+        </p>
+      </div>
       <p id="review--txt">Review:{reviewUnit.review_body}</p>
       <p>Votes:{reviewUnit.votes}</p>
     </main>

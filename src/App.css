@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 a {
   color: silver;
@@ -19,13 +20,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+.auth-main {
+  color: rgb(156, 151, 143);
+}
 
+#reviews-link {
+  font-size: 2em;
+}
 .reviews--review {
   border: solid 1px rgb(49, 44, 33);
 }
@@ -54,5 +55,11 @@ body {
     justify-content: center;
     align-items: center;
     width: 60%;
+  }
+  .review--headings {
+    width: 100%;
+    margin: 0.4em;
+    display: flex;
+    justify-content: space-around;
   }
 }

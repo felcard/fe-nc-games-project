@@ -21,7 +21,9 @@ function App() {
       <div className="App">
         <Header user={user} />
         <nav id="nav">
-          <Link to="/">Reviews</Link>
+          <Link to="/" id="reviews-link">
+            Reviews
+          </Link>
         </nav>
         <Routes>
           <Route path="/" element={<Reviews></Reviews>}></Route>

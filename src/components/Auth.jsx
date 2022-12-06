@@ -23,7 +23,7 @@ export default function Auth() {
   };
 
   return (
-    <div>
+    <main className="auth-main">
       <form onSubmit={handleSubmit}>
         <h2>Please enter your username:</h2>
         <label>
@@ -34,6 +34,6 @@ export default function Auth() {
         </label>
         <button type="submit">Submit</button>
       </form>
-    </div>
+    </main>
   );
 }
