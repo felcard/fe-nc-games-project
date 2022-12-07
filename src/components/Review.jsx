@@ -48,17 +48,22 @@ export default function Review() {
         <p id="review--txt">Review: {reviewUnit.review_body}</p>
         <p id="review--votes">
           Review Votes:{" "}
-          <i class="fa-solid fa-circle-up" onClick={handleVote}></i>{" "}
+          <i className="fa-solid fa-circle-up" onClick={handleVote}></i>{" "}
           <span className="review--votes-color">{reviewUnit.votes}</span>{" "}
-          <i class="fa-solid fa-circle-down"></i>
+          <i className="fa-solid fa-circle-down"></i>
         </p>
       </main>
       <footer id="review--footer">
         <h2>Comments</h2>
+        {comments.length === 0 && (
+          <div className="review--comments-box">
+            This review has no comments yet...
+          </div>
+        )}
         {comments.map((comment) => {
           return (
-            <div id="review--comments-box">
-              <p key={comment.comment_id}>{comment.body}</p>
+            <div key={comment.comment_id} className="review--comments-box">
+              <p>{comment.body}</p>
               <p>
                 <strong>Author: </strong>
                 {comment.author}

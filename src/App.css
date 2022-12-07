@@ -14,7 +14,11 @@ body {
   background: rgb(58, 53, 46);
 }
 #nav {
+  top: 0;
   text-transform: uppercase;
+  position: fixed;
+  width: 100vw;
+  background: rgb(58, 53, 46);
 }
 .App {
   color: rgb(185, 173, 153);
@@ -73,6 +77,7 @@ body {
     font-size: 1.5em;
   }
   #reviews--grid {
+    margin-top: 7em;
     display: grid;
     grid-template-columns: auto auto auto;
     row-gap: 0.5em;
@@ -86,6 +91,7 @@ body {
     margin-top: 0.4em;
   }
   .review--review-unit {
+    margin-top: 7em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,7 +119,7 @@ body {
   #review--footer {
     width: 100%;
   }
-  #review--comments-box {
+  .review--comments-box {
     border: solid 1px rgb(90, 75, 58);
     text-align: left;
     padding: 0.4em;
