@@ -31,8 +31,17 @@ body {
   align-items: center;
 }
 #spinner {
+  animation: rotation 2s infinite linear;
   margin-left: 20px;
   font-size: 3em;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 #loading--title {
   color: rgb(114, 76, 153);
