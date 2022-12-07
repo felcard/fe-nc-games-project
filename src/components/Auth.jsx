@@ -33,6 +33,7 @@ export default function Auth() {
     <main className="auth-main">
       <form onSubmit={handleSubmit}>
         <h2>Please enter your username:</h2>
+        <h3>{"( Tutors enter grumpy19 )"}</h3>
         <label htmlFor={inputUser}>
           <input
             value={inputUser}
