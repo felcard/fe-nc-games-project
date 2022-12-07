@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getComments, getReview } from "../tools/api";
+import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
 
 export default function Review() {
@@ -8,18 +8,44 @@ export default function Review() {
   const { review } = useParams();
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [votes, setVotes] = useState();
   useEffect(() => {
     getReview(review).then((res) => {
       setReviewUnit(res[0]);
+      setVotes(reviewUnit.votes);
     });
     getComments(review).then((res) => {
       setComments(res);
       setLoading(false);
     });
-  }, [review]);
+  }, [review, reviewUnit.votes]);
 
-  const handleVote = () => {
-    console.log("hi");
+  const handleVote = (vote) => {
+    if (vote === "up") {
+      setVotes((currVote) => {
+        return currVote + 1;
+      });
+      updateVotes(review, {
+        inc_votes: 1,
+      }).catch((err) => {
+        setVotes((currVote) => {
+          return currVote - 1;
+        });
+        alert("Something went horribly wrong! I beg you please try again :)");
+      });
+    } else {
+      setVotes((currVote) => {
+        return currVote - 1;
+      });
+      updateVotes(review, {
+        inc_votes: -1,
+      }).catch((err) => {
+        setVotes((currVote) => {
+          return currVote + 1;
+        });
+        alert("Something went horribly wrong! I beg you please try again :)");
+      });
+    }
   };
 
   if (loading) {
@@ -48,9 +74,15 @@ export default function Review() {
         <p id="review--txt">Review: {reviewUnit.review_body}</p>
         <p id="review--votes">
           Review Votes:{" "}
-          <i className="fa-solid fa-circle-up" onClick={handleVote}></i>{" "}
-          <span className="review--votes-color">{reviewUnit.votes}</span>{" "}
-          <i className="fa-solid fa-circle-down"></i>
+          <i
+            className="fa-solid fa-circle-up"
+            onClick={() => handleVote("up")}
+          ></i>{" "}
+          <span className="review--votes-color">{votes}</span>{" "}
+          <i
+            className="fa-solid fa-circle-down"
+            onClick={() => handleVote("down")}
+          ></i>
         </p>
       </main>
       <footer id="review--footer">
