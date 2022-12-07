@@ -19,8 +19,8 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <div className="App">
-        <Header user={user} />
         <nav id="nav">
+          <Header user={user} />
           <Link to="/" id="reviews-link">
             Reviews
           </Link>

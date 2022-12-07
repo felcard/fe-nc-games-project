@@ -1,12 +1,24 @@
 export default function ReviewUnit({ review }) {
   return (
     <div className="reviews--review">
-      <h2>{review.title}</h2>
+      <h2 className="review-unit--h2">{review.title}</h2>
       <img src={review.review_img_url} alt={review.title} />
-      <p>Category:{review.category}</p>
-      <p>Designer:{review.designer}</p>
-      <p>Game Owner:{review.owner}</p>
-      <p>Votes:{review.votes}</p>
+      <p>
+        <strong>Category: </strong>
+        {review.category}
+      </p>
+      <p>
+        <strong>Designer: </strong>
+        {review.designer}
+      </p>
+      <p>
+        <strong>Game Owner: </strong>
+        {review.owner}
+      </p>
+      <p>
+        <strong>Votes: </strong>
+        {review.votes}
+      </p>
     </div>
   );
 }
