@@ -7,11 +7,17 @@
 a {
   color: silver;
 }
+a :hover {
+  background: rgb(66, 60, 52);
+}
 body {
   background: rgb(58, 53, 46);
 }
+#nav {
+  text-transform: uppercase;
+}
 .App {
-  color: rgb(156, 151, 143);
+  color: rgb(185, 173, 153);
   background: rgb(58, 53, 46);
   text-align: center;
   width: 100vw;
@@ -20,15 +26,31 @@ body {
   justify-content: center;
   align-items: center;
 }
-.auth-main {
-  color: rgb(156, 151, 143);
+#spinner {
+  margin-left: 20px;
+  font-size: 3em;
 }
-
+#loading--title {
+  color: rgb(114, 76, 153);
+  font-size: 3em;
+}
+.auth-main,
+.loading--main {
+  width: 100vw;
+  height: 60vh;
+  color: rgb(156, 151, 143);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#auth--input {
+  width: 80%;
+}
+.auth-main button {
+  width: 20%;
+}
 #reviews-link {
   font-size: 2em;
-}
-.reviews--review {
-  border: solid 1px rgb(49, 44, 33);
 }
 .reviews--review img {
   width: 100%;
@@ -37,10 +59,16 @@ body {
 }
 .review--review-unit img {
   width: 100%;
+  max-height: 50vh;
   object-fit: cover;
+}
+.review--votes-color {
+  font-size: 1.2em;
+  color: rgb(156, 104, 156);
 }
 @media only screen and (min-width: 768px) {
   #review--txt {
+    text-align: left;
     margin-top: 0.2em;
     font-size: 1.5em;
   }
@@ -49,6 +77,13 @@ body {
     grid-template-columns: auto auto auto;
     row-gap: 0.5em;
     column-gap: 0.5em;
+    text-align: left;
+  }
+  #reviews--grid p {
+    padding: 0.1em;
+  }
+  .reviews--review {
+    margin-top: 0.4em;
   }
   .review--review-unit {
     display: flex;
@@ -56,6 +91,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 50%;
+  }
+  .review--review-unit h2 {
+    margin-top: 0.6em;
+    text-transform: uppercase;
+  }
+  .review-unit--h2 {
+    color: rgb(156, 151, 143);
+    text-align: center;
   }
   .review--headings {
     width: 100%;
@@ -66,5 +109,13 @@ body {
   #review--votes {
     margin-top: 0.2em;
     font-size: 1.5em;
+  }
+  #review--footer {
+    width: 100%;
+  }
+  #review--comments-box {
+    border: solid 1px rgb(90, 75, 58);
+    text-align: left;
+    padding: 0.4em;
   }
 }
