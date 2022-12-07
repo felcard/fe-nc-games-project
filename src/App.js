@@ -5,6 +5,7 @@ import { UserContext } from "./context/User";
 import Reviews from "./components/Reviews";
 import Auth from "./components/Auth";
 import Header from "./components/Header";
+import Review from "./components/Review";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,10 +21,13 @@ function App() {
       <div className="App">
         <Header user={user} />
         <nav id="nav">
-          <Link to="/">Reviews</Link>
+          <Link to="/" id="reviews-link">
+            Reviews
+          </Link>
         </nav>
         <Routes>
           <Route path="/" element={<Reviews></Reviews>}></Route>
+          <Route path="/reviews/:review" element={<Review></Review>}></Route>
         </Routes>
       </div>
     </UserContext.Provider>
