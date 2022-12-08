@@ -9,6 +9,8 @@ export default function Review() {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [votes, setVotes] = useState();
+  const [vis, setVis] = useState("in-line");
+
   useEffect(() => {
     getReview(review).then((res) => {
       setReviewUnit(res[0]);
@@ -21,6 +23,7 @@ export default function Review() {
   }, [review, reviewUnit.votes]);
 
   const handleVote = (vote) => {
+    setVis("none");
     if (vote === "up") {
       setVotes((currVote) => {
         return currVote + 1;
@@ -75,11 +78,13 @@ export default function Review() {
         <p id="review--votes">
           Review Votes:{" "}
           <i
+            style={{ display: `${vis}` }}
             className="fa-solid fa-circle-up"
             onClick={() => handleVote("up")}
           ></i>{" "}
           <span className="review--votes-color">{votes}</span>{" "}
           <i
+            style={{ display: `${vis}` }}
             className="fa-solid fa-circle-down"
             onClick={() => handleVote("down")}
           ></i>
