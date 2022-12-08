@@ -73,8 +73,8 @@ export default function Comment() {
       </main>
       <footer>
         <h3>
-          <span id="comments--user">{user}</span>--> please post your comment
-          below
+          <span id="comments--user">{user}</span>
+          {"-->"} please post your comment below
         </h3>
         <form id="comments--form" onSubmit={handleSubmit}>
           <label htmlFor={commentInput}>
