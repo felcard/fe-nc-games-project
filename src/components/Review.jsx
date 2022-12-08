@@ -13,10 +13,10 @@ export default function Review() {
     getReview(review).then((res) => {
       setReviewUnit(res[0]);
       setVotes(reviewUnit.votes);
+      setLoading(false);
     });
     getComments(review).then((res) => {
       setComments(res);
-      setLoading(false);
     });
   }, [review, reviewUnit.votes]);
 

@@ -29,11 +29,17 @@ export default function Comment() {
     if (commentInput === "") {
       alert("You haven't entered a comment");
     } else {
-      postComment(review_id, commentObj).then((res) => {
-        setCommentInput("");
-        setPostComment(res);
-        navigate(-1);
-      });
+      postComment(review_id, commentObj)
+        .then((res) => {
+          setCommentInput("");
+          setPostComment(res);
+          navigate(-1);
+        })
+        .catch(() => {
+          alert(
+            "We are really sorry but your precious comment was not posted. Please try again"
+          );
+        });
     }
   };
   if (loading) {
@@ -42,7 +48,7 @@ export default function Comment() {
   return (
     <div className="review--review-unit">
       <main>
-        <h2>Comment on this Review</h2>
+        <h2 id="comment--title">Comment on this Review</h2>
         <h2>{reviewUnit.title}</h2>
         <img src={reviewUnit.review_img_url} alt={reviewUnit.title} />
         <div className="review--headings">
