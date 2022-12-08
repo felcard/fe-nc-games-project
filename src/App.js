@@ -7,9 +7,11 @@ import Auth from "./components/Auth";
 import Header from "./components/Header";
 import Review from "./components/Review";
 import Comment from "./components/Comment";
+import Categories from "./components/Categories";
 
 function App() {
   const [user, setUser] = useState(null);
+
   if (!user) {
     return (
       <UserContext.Provider value={{ user, setUser }}>
@@ -25,11 +27,13 @@ function App() {
           <Link to="/" id="reviews-link">
             Reviews
           </Link>
+          <Categories />
         </nav>
         <Routes>
           <Route path="/" element={<Reviews />} />
           <Route path="/reviews/:review" element={<Review />} />
           <Route path="/reviews/:review_id/comments" element={<Comment />} />
+          <Route path="/categories/:category" element={<Reviews />} />
         </Routes>
       </div>
     </UserContext.Provider>

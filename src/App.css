@@ -20,11 +20,18 @@ body {
   width: 100vw;
   background: rgb(58, 53, 46);
   border-bottom: solid 1px rgb(66, 60, 52);
+  padding-bottom: 0.5em;
 }
 .header--title {
   color: rgb(212, 169, 103);
   font-family: codystar;
-  font-size: 2em;
+  font-size: 1.5em;
+}
+#header--user {
+  color: rgb(99, 120, 153);
+}
+.header--wellcome {
+  font-size: 0.8rem;
 }
 .App {
   color: rgb(185, 173, 153);
@@ -78,7 +85,7 @@ body {
   outline: none;
 }
 #reviews-link {
-  font-size: 2em;
+  font-size: 1.3em;
 }
 .reviews--review img {
   width: 100%;
@@ -86,7 +93,22 @@ body {
   object-fit: cover;
 }
 #reviews--grid {
+  margin-top: 9em;
+}
+.categories--categories-flex {
+  padding-top: 0.5em;
+  border-top: solid 1px rgb(66, 60, 52);
+  font-size: 0.8em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+}
+.review--review-unit {
   margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .review--review-unit img {
   width: 100%;
@@ -112,14 +134,6 @@ body {
 .review--headings {
   width: 100%;
   margin: 0.4em;
-}
-.review--review-unit {
-  margin-top: 7em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 .review--review-unit h2 {
   margin-top: 0.6em;
@@ -166,10 +180,17 @@ body {
   .header--title {
     font-size: 3em;
   }
+  .header--wellcome {
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-bottom: -2em;
+  }
   #reviews--grid {
-    margin-top: 7em;
+    width: 100vw;
+    margin-top: 8em;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     row-gap: 0.5em;
     column-gap: 0.5em;
     text-align: left;
@@ -179,6 +200,13 @@ body {
   }
   .reviews--review {
     margin-top: 0.4em;
+  }
+  .categories--categories-flex {
+    padding-top: 0.5em;
+    border-top: solid 1px rgb(66, 60, 52);
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-around;
   }
   .review--review-unit {
     width: 50%;
@@ -193,6 +221,9 @@ body {
   .review--headings {
     display: flex;
     justify-content: space-around;
+  }
+  #reviews-link {
+    font-size: 2em;
   }
   #review--txt {
     line-height: 1.2em;

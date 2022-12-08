@@ -41,3 +41,9 @@ export const postComment = (review_id, comment) => {
       return res.data.insertedComment;
     });
 };
+
+export const getCategories = () => {
+  return gamesApi.get("/categories").then((res) => {
+    return res.data.categories;
+  });
+};
