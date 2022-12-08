@@ -79,8 +79,61 @@ body {
   font-size: 1.2em;
   color: rgb(156, 104, 156);
 }
+#review--comment {
+  width: 100%;
+  text-align: right;
+}
+#review--comment--button {
+  border: solid 1px rgb(75, 66, 56);
+}
+.comment--main {
+  margin-top: 7em;
+}
+#comments--user {
+  color: rgb(99, 120, 153);
+}
+#comments--text {
+  width: 100%;
+  min-height: 10vh;
+  background: transparent;
+  border: solid 1px rgb(99, 83, 66);
+  color: rgb(185, 173, 153);
+  outline: none;
+}
+.review--comments-box {
+  border: solid 1px rgb(90, 75, 58);
+  text-align: left;
+  padding: 0.4em;
+}
+.review--headings {
+  width: 100%;
+  margin: 0.4em;
+}
+.review--review-unit {
+  margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#reviews--grid {
+  margin-top: 7em;
+}
+#comments--form button {
+  display: block;
+  background: rgb(92, 75, 61);
+  width: 5em;
+  color: rgb(194, 179, 160);
+  border: solid 1px rgb(83, 68, 39);
+}
+#comments--form {
+  width: 90vw;
+  margin-bottom: 1em;
+}
 @media only screen and (min-width: 768px) {
   #review--txt {
+    line-height: 1.2em;
     text-align: left;
     margin-top: 0.2em;
     font-size: 1.5em;
@@ -132,5 +185,16 @@ body {
     border: solid 1px rgb(90, 75, 58);
     text-align: left;
     padding: 0.4em;
+  }
+  #comments--form {
+    width: 50vw;
+    margin-bottom: 1em;
+  }
+  #comments--form button {
+    display: block;
+    background: rgb(92, 75, 61);
+    width: 5em;
+    color: rgb(194, 179, 160);
+    border: solid 1px rgb(83, 68, 39);
   }
 }

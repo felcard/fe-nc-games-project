@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
 
@@ -56,7 +56,7 @@ export default function Review() {
     <div className="review--review-unit">
       <main>
         <h2>{reviewUnit.title}</h2>
-        <img src={reviewUnit.review_img_url} alt={review.title} />
+        <img src={reviewUnit.review_img_url} alt={reviewUnit.title} />
         <div className="review--headings">
           <p>
             <strong>Category: </strong>
@@ -86,7 +86,12 @@ export default function Review() {
         </p>
       </main>
       <footer id="review--footer">
-        <h2>Comments</h2>
+        <h2>Comments</h2>{" "}
+        <h3 id="review--comment">
+          <Link to={`/reviews/${review}/comments`}>
+            <span id="review--comment--button">Post a comment</span>
+          </Link>
+        </h3>
         {comments.length === 0 && (
           <div className="review--comments-box">
             This review has no comments yet...
