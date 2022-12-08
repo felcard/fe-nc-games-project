@@ -6,6 +6,7 @@ import Reviews from "./components/Reviews";
 import Auth from "./components/Auth";
 import Header from "./components/Header";
 import Review from "./components/Review";
+import Comment from "./components/Comment";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,8 +27,9 @@ function App() {
           </Link>
         </nav>
         <Routes>
-          <Route path="/" element={<Reviews></Reviews>}></Route>
-          <Route path="/reviews/:review" element={<Review></Review>}></Route>
+          <Route path="/" element={<Reviews />} />
+          <Route path="/reviews/:review" element={<Review />} />
+          <Route path="/reviews/:review_id/comments" element={<Comment />} />
         </Routes>
       </div>
     </UserContext.Provider>
