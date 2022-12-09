@@ -13,6 +13,16 @@ a :hover {
 body {
   background: rgb(58, 53, 46);
 }
+.App {
+  color: rgb(185, 173, 153);
+  background: rgb(58, 53, 46);
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #nav {
   top: 0;
   text-transform: uppercase;
@@ -32,16 +42,6 @@ body {
 }
 .header--wellcome {
   font-size: 0.8rem;
-}
-.App {
-  color: rgb(185, 173, 153);
-  background: rgb(58, 53, 46);
-  text-align: center;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 #spinner {
   animation: rotation 2s infinite linear;
@@ -71,6 +71,7 @@ body {
 }
 #auth--input {
   width: 80%;
+  outline: none;
 }
 .auth-main button {
   width: 20%;
@@ -81,9 +82,6 @@ body {
   color: rgb(185, 154, 114);
   border: solid 1px rgb(117, 101, 69);
 }
-.auth--form-input {
-  outline: none;
-}
 #reviews-link {
   font-size: 1.3em;
 }
@@ -93,7 +91,7 @@ body {
   object-fit: cover;
 }
 #reviews--grid {
-  margin-top: 9em;
+  margin-top: 13em;
 }
 .categories--categories-flex {
   padding-top: 0.5em;
@@ -104,7 +102,7 @@ body {
   justify-content: space-around;
 }
 .review--review-unit {
-  margin-top: 7em;
+  margin-top: 13em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,6 +128,12 @@ body {
   border: solid 1px rgb(90, 75, 58);
   text-align: left;
   padding: 0.4em;
+}
+.comment--delete-button {
+  width: 4em;
+  background: rgb(72, 64, 88);
+  border: solid 1px rgb(90, 75, 58);
+  color: rgb(179, 146, 146);
 }
 .review--headings {
   width: 100%;
@@ -175,7 +179,44 @@ body {
   color: rgb(143, 84, 96);
   text-shadow: 1px 1px #241717;
 }
-
+#sorters {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.categories--checkbox-cont {
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cat--sorter {
+  border: solid 1px rgb(71, 49, 23);
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  background: rgb(236, 213, 81);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: pointer;
+}
+#checkbox {
+  margin: auto;
+  display: flex;
+  width: 3em;
+  height: 1.7em;
+  background: rgb(44, 31, 7);
+  padding: 0.1em;
+}
+#toggle {
+  width: 1.5em;
+  height: 1.5em;
+  background: rgb(185, 117, 71);
+}
+#categories--main-h4 {
+  align-self: center;
+  margin-bottom: -1em;
+}
 @media only screen and (min-width: 768px) {
   .header--title {
     font-size: 3em;
@@ -188,7 +229,7 @@ body {
   }
   #reviews--grid {
     width: 100vw;
-    margin-top: 8em;
+    margin-top: 11.5em;
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
     row-gap: 0.5em;
@@ -198,21 +239,16 @@ body {
   #reviews--grid p {
     padding: 0.1em;
   }
+  #reviews--grid {
+    margin-top: 10.5em;
+  }
   .reviews--review {
     margin-top: 0.4em;
   }
-  .categories--categories-flex {
-    padding-top: 0.5em;
-    border-top: solid 1px rgb(66, 60, 52);
-    font-size: 0.9em;
-    display: flex;
-    justify-content: space-around;
-  }
+
   .review--review-unit {
+    margin-top: 11em;
     width: 50%;
-  }
-  .review--review-unit h2 {
-    margin-top: 1em;
   }
   .review-unit--h2 {
     margin-top: 0.8em;
@@ -234,11 +270,46 @@ body {
   #review--votes {
     margin-top: 0.2em;
     font-size: 1.5em;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
   #review--footer {
     width: 100%;
   }
+  #comment--title {
+    margin-top: 1em;
+  }
   #comments--form {
     width: 50vw;
+  }
+  #comments--text {
+    resize: none;
+  }
+  .categories--categories-flex {
+    padding-top: 0.5em;
+    border-top: solid 1px rgb(66, 60, 52);
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-around;
+  }
+  .categories--checkbox-cont {
+    font-size: 1em;
+    margin-right: 2em;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+  }
+  #categories--main-h4 {
+    margin-top: -1em;
+  }
+  #sorters {
+    width: auto;
+    display: flex;
+    margin-right: 1em;
+  }
+  #checkbox {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 }

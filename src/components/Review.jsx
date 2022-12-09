@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
+import { deleteComment } from "../tools/api";
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+import Error from "./Error";
 
 export default function Review() {
   const [reviewUnit, setReviewUnit] = useState([]);
@@ -11,12 +15,18 @@ export default function Review() {
   const [votes, setVotes] = useState();
   const [vis, setVis] = useState("in-line");
 
+  const { user } = useContext(UserContext);
+
   useEffect(() => {
-    getReview(review).then((res) => {
-      setReviewUnit(res[0]);
-      setVotes(reviewUnit.votes);
-      setLoading(false);
-    });
+    getReview(review)
+      .then((res) => {
+        setReviewUnit(res[0]);
+        setVotes(reviewUnit.votes);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setReviewUnit(err.response.data);
+      });
     getComments(review).then((res) => {
       setComments(res);
     });
@@ -50,6 +60,22 @@ export default function Review() {
       });
     }
   };
+
+  const handleDelete = (id, author) => {
+    if (user !== author) {
+      alert("it is not right to try and delete other people's comments!! :)");
+    } else {
+      deleteComment(id).then((res) => {
+        getComments(review).then((res) => {
+          setComments(res);
+        });
+      });
+    }
+  };
+
+  if (reviewUnit.msg) {
+    return <Error error={`Review ${reviewUnit.msg}`} />;
+  }
 
   if (loading) {
     return <Loading />;
@@ -114,6 +140,12 @@ export default function Review() {
                 <strong>Votes: </strong>
                 {comment.votes}
               </p>
+              <button
+                onClick={() => handleDelete(comment.comment_id, comment.author)}
+                className="comment--delete-button"
+              >
+                delete
+              </button>
             </div>
           );
         })}

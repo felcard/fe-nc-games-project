@@ -3,19 +3,27 @@ import { getReviews } from "../tools/api";
 import ReviewUnit from "./ReviewUnit";
 import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
+import Error from "./Error";
 
-export default function Reviews() {
+export default function Reviews({ sort, order }) {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const { category } = useParams();
-
   useEffect(() => {
     setLoading(true);
-    getReviews(category).then((res) => {
-      setReviews(res);
-      setLoading(false);
-    });
-  }, [category]);
+    getReviews(sort, order, category)
+      .then((res) => {
+        setReviews(res);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setReviews(err.response.data);
+      });
+  }, [category, order, sort]);
+
+  if (reviews.msg) {
+    return <Error error={`Category ${reviews.msg}`} />;
+  }
 
   if (loading) {
     return <Loading />;
