@@ -10,13 +10,9 @@ export default function Reviews() {
   const { category } = useParams();
 
   useEffect(() => {
-    getReviews().then((res) => {
-      if (category) {
-        let revByCat = res.filter((review) => review.category === category);
-        setReviews(revByCat);
-      } else {
-        setReviews(res);
-      }
+    setLoading(true);
+    getReviews(category).then((res) => {
+      setReviews(res);
       setLoading(false);
     });
   }, [category]);

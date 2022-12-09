@@ -4,10 +4,16 @@ const gamesApi = axios.create({
   baseURL: "https://helpful-fox-leather-jacket.cyclic.app/api",
 });
 
-export const getReviews = () => {
-  return gamesApi.get("/reviews").then((res) => {
-    return res.data.reviews;
-  });
+export const getReviews = (category) => {
+  return gamesApi
+    .get("/reviews", {
+      params: {
+        category: category,
+      },
+    })
+    .then((res) => {
+      return res.data.reviews;
+    });
 };
 
 export const getUsers = () => {
