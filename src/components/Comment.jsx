@@ -12,7 +12,6 @@ export default function Comment() {
   const [reviewUnit, setReviewUnit] = useState([]);
   const [loading, setLoading] = useState(true);
   const [commentInput, setCommentInput] = useState("");
-  const [postedComment, setPostComment] = useState({});
   const commentObj = {};
 
   useEffect(() => {
@@ -32,7 +31,6 @@ export default function Comment() {
       postComment(review_id, commentObj)
         .then((res) => {
           setCommentInput("");
-          setPostComment(res);
           navigate(-1);
         })
         .catch(() => {

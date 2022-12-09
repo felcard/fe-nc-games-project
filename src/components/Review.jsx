@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
+import { deleteComment } from "../tools/api";
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+import Error from "./Error";
 
 export default function Review() {
   const [reviewUnit, setReviewUnit] = useState([]);
@@ -10,13 +14,20 @@ export default function Review() {
   const [loading, setLoading] = useState(true);
   const [votes, setVotes] = useState();
   const [vis, setVis] = useState("in-line");
+  const [deleteMsg, setDeleteMsg] = useState("none");
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-    getReview(review).then((res) => {
-      setReviewUnit(res[0]);
-      setVotes(reviewUnit.votes);
-      setLoading(false);
-    });
+    getReview(review)
+      .then((res) => {
+        setReviewUnit(res[0]);
+        setVotes(reviewUnit.votes);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setReviewUnit(err.response.data);
+      });
     getComments(review).then((res) => {
       setComments(res);
     });
@@ -51,12 +62,35 @@ export default function Review() {
     }
   };
 
+  const handleDelete = (id, author) => {
+    if (user !== author) {
+      alert("it is not right to try and delete other people's comments!! :)");
+    } else {
+      deleteComment(id).then((res) => {
+        getComments(review).then((res) => {
+          setDeleteMsg("flex");
+          setTimeout(() => {
+            setComments(res);
+            setDeleteMsg("none");
+          }, 2000);
+        });
+      });
+    }
+  };
+
+  if (reviewUnit.msg) {
+    return <Error error={`Review ${reviewUnit.msg}`} />;
+  }
+
   if (loading) {
     return <Loading />;
   }
 
   return (
     <div className="review--review-unit">
+      <div id="delete-message" style={{ display: `${deleteMsg}` }}>
+        YOR MESSAGE WAS DELETED..FOREVER!
+      </div>
       <main>
         <h2>{reviewUnit.title}</h2>
         <img src={reviewUnit.review_img_url} alt={reviewUnit.title} />
@@ -114,6 +148,12 @@ export default function Review() {
                 <strong>Votes: </strong>
                 {comment.votes}
               </p>
+              <button
+                onClick={() => handleDelete(comment.comment_id, comment.author)}
+                className="comment--delete-button"
+              >
+                delete
+              </button>
             </div>
           );
         })}

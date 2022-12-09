@@ -7,9 +7,13 @@ import Auth from "./components/Auth";
 import Header from "./components/Header";
 import Review from "./components/Review";
 import Comment from "./components/Comment";
+import Categories from "./components/Categories";
+import Error from "./components/Error";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [sort, setSort] = useState("");
+  const [order, setOrder] = useState("");
   if (!user) {
     return (
       <UserContext.Provider value={{ user, setUser }}>
@@ -25,11 +29,17 @@ function App() {
           <Link to="/" id="reviews-link">
             Reviews
           </Link>
+          <Categories setSort={setSort} setOrder={setOrder} />
         </nav>
         <Routes>
-          <Route path="/" element={<Reviews />} />
+          <Route path="*" element={<Error error={"Path not found"} />} />
+          <Route path="/" element={<Reviews sort={sort} order={order} />} />
           <Route path="/reviews/:review" element={<Review />} />
           <Route path="/reviews/:review_id/comments" element={<Comment />} />
+          <Route
+            path="/categories/:category"
+            element={<Reviews sort={sort} order={order} />}
+          />
         </Routes>
       </div>
     </UserContext.Provider>

@@ -36,7 +36,6 @@ export default function Auth() {
         <h3>{"( Tutors enter grumpy19 )"}</h3>
         <label htmlFor={inputUser}>
           <input
-            className="auth--form-input"
             value={inputUser}
             onChange={(event) => setInputUser(event.target.value)}
             id="auth--input"

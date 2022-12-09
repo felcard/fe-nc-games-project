@@ -4,10 +4,18 @@ const gamesApi = axios.create({
   baseURL: "https://helpful-fox-leather-jacket.cyclic.app/api",
 });
 
-export const getReviews = () => {
-  return gamesApi.get("/reviews").then((res) => {
-    return res.data.reviews;
-  });
+export const getReviews = (sort, order, category) => {
+  return gamesApi
+    .get("/reviews", {
+      params: {
+        category: category,
+        sort_by: sort,
+        order: order,
+      },
+    })
+    .then((res) => {
+      return res.data.reviews;
+    });
 };
 
 export const getUsers = () => {
@@ -40,4 +48,16 @@ export const postComment = (review_id, comment) => {
     .then((res) => {
       return res.data.insertedComment;
     });
+};
+
+export const getCategories = () => {
+  return gamesApi.get("/categories").then((res) => {
+    return res.data.categories;
+  });
+};
+
+export const deleteComment = (comment_id) => {
+  return gamesApi.delete(`/comments/${comment_id}`).then((res) => {
+    return res.data;
+  });
 };

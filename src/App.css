@@ -8,23 +8,11 @@ a {
   color: silver;
 }
 a :hover {
+  color: rgb(169, 125, 180);
   background: rgb(66, 60, 52);
 }
 body {
   background: rgb(58, 53, 46);
-}
-#nav {
-  top: 0;
-  text-transform: uppercase;
-  position: fixed;
-  width: 100vw;
-  background: rgb(58, 53, 46);
-  border-bottom: solid 1px rgb(66, 60, 52);
-}
-.header--title {
-  color: rgb(212, 169, 103);
-  font-family: codystar;
-  font-size: 2em;
 }
 .App {
   color: rgb(185, 173, 153);
@@ -35,6 +23,26 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#nav {
+  top: 0;
+  text-transform: uppercase;
+  position: fixed;
+  width: 100vw;
+  background: rgb(58, 53, 46);
+  border-bottom: solid 1px rgb(66, 60, 52);
+  padding-bottom: 0.5em;
+}
+.header--title {
+  color: rgb(212, 169, 103);
+  font-family: codystar;
+  font-size: 1.5em;
+}
+#header--user {
+  color: rgb(99, 120, 153);
+}
+.header--wellcome {
+  font-size: 0.8rem;
 }
 #spinner {
   animation: rotation 2s infinite linear;
@@ -64,6 +72,7 @@ body {
 }
 #auth--input {
   width: 80%;
+  outline: none;
 }
 .auth-main button {
   width: 20%;
@@ -74,11 +83,8 @@ body {
   color: rgb(185, 154, 114);
   border: solid 1px rgb(117, 101, 69);
 }
-.auth--form-input {
-  outline: none;
-}
 #reviews-link {
-  font-size: 2em;
+  font-size: 1.3em;
 }
 .reviews--review img {
   width: 100%;
@@ -86,7 +92,22 @@ body {
   object-fit: cover;
 }
 #reviews--grid {
-  margin-top: 7em;
+  margin-top: 13em;
+}
+.categories--categories-flex {
+  padding-top: 0.5em;
+  border-top: solid 1px rgb(66, 60, 52);
+  font-size: 0.8em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+}
+.review--review-unit {
+  margin-top: 13em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .review--review-unit img {
   width: 100%;
@@ -109,17 +130,15 @@ body {
   text-align: left;
   padding: 0.4em;
 }
+.comment--delete-button {
+  width: 4em;
+  background: rgb(72, 64, 88);
+  border: solid 1px rgb(90, 75, 58);
+  color: rgb(179, 146, 146);
+}
 .review--headings {
   width: 100%;
   margin: 0.4em;
-}
-.review--review-unit {
-  margin-top: 7em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 .review--review-unit h2 {
   margin-top: 0.6em;
@@ -161,15 +180,79 @@ body {
   color: rgb(143, 84, 96);
   text-shadow: 1px 1px #241717;
 }
+#sorters {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.categories--checkbox-cont {
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cat--sorter {
+  border: solid 1px rgb(71, 49, 23);
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  background: rgb(236, 213, 81);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: pointer;
+}
+#checkbox {
+  margin: auto;
+  display: flex;
+  width: 3em;
+  height: 1.7em;
+  background: rgb(44, 31, 7);
+  padding: 0.1em;
+}
+#toggle {
+  width: 1.5em;
+  height: 1.5em;
+  background: rgb(185, 117, 71);
+}
+#categories--main-h4 {
+  align-self: center;
+  margin-bottom: -1em;
+}
+
+#delete-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 7vh;
+  background-color: rgb(155, 86, 30);
+  color: #160b02;
+  font-weight: 800;
+  opacity: 0.6;
+  font-size: 1.2em;
+  position: fixed;
+  z-index: 10;
+}
 
 @media only screen and (min-width: 768px) {
+  #delete-message {
+    width: 20vw;
+  }
+
   .header--title {
     font-size: 3em;
   }
+  .header--wellcome {
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-bottom: -2em;
+  }
   #reviews--grid {
-    margin-top: 7em;
+    width: 100vw;
+    margin-top: 11.5em;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     row-gap: 0.5em;
     column-gap: 0.5em;
     text-align: left;
@@ -177,14 +260,16 @@ body {
   #reviews--grid p {
     padding: 0.1em;
   }
+  #reviews--grid {
+    margin-top: 10.5em;
+  }
   .reviews--review {
     margin-top: 0.4em;
   }
+
   .review--review-unit {
+    margin-top: 11em;
     width: 50%;
-  }
-  .review--review-unit h2 {
-    margin-top: 1em;
   }
   .review-unit--h2 {
     margin-top: 0.8em;
@@ -193,6 +278,9 @@ body {
   .review--headings {
     display: flex;
     justify-content: space-around;
+  }
+  #reviews-link {
+    font-size: 2em;
   }
   #review--txt {
     line-height: 1.2em;
@@ -203,11 +291,46 @@ body {
   #review--votes {
     margin-top: 0.2em;
     font-size: 1.5em;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
   #review--footer {
     width: 100%;
   }
+  #comment--title {
+    margin-top: 1em;
+  }
   #comments--form {
     width: 50vw;
+  }
+  #comments--text {
+    resize: none;
+  }
+  .categories--categories-flex {
+    padding-top: 0.5em;
+    border-top: solid 1px rgb(66, 60, 52);
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-around;
+  }
+  .categories--checkbox-cont {
+    font-size: 1em;
+    margin-right: 2em;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+  }
+  #categories--main-h4 {
+    margin-top: -1em;
+  }
+  #sorters {
+    width: auto;
+    display: flex;
+    margin-right: 1em;
+  }
+  #checkbox {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 }
