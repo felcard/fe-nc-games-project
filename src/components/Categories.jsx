@@ -81,10 +81,13 @@ export default function Categories({ setSort, setOrder }) {
       <div>
         <h4 id="categories--main-h4">Categories</h4> <br />
         <section className="categories--categories-flex">
+          <Link id="categories--review-btn" to={"/"}>
+            <div>All Reviews</div>
+          </Link>
           {categories.map((category) => {
             return (
               <Link key={category.slug} to={`/categories/${category.slug}`}>
-                <div className="categories--category">{category.slug}</div>
+                <div>{category.slug}</div>
               </Link>
             );
           })}

@@ -1,3 +1,5 @@
+import { formatDate } from "../tools/utils";
+
 export default function ReviewUnit({ review }) {
   return (
     <div className="reviews--review">
@@ -18,6 +20,10 @@ export default function ReviewUnit({ review }) {
       <p>
         <strong>Votes: </strong>
         {review.votes}
+      </p>
+      <p>
+        <strong>Date: </strong>
+        {formatDate(review.created_at)}
       </p>
     </div>
   );

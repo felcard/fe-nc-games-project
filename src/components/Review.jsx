@@ -14,6 +14,7 @@ export default function Review() {
   const [loading, setLoading] = useState(true);
   const [votes, setVotes] = useState();
   const [vis, setVis] = useState("in-line");
+  const [deleteMsg, setDeleteMsg] = useState("none");
 
   const { user } = useContext(UserContext);
 
@@ -67,7 +68,11 @@ export default function Review() {
     } else {
       deleteComment(id).then((res) => {
         getComments(review).then((res) => {
-          setComments(res);
+          setDeleteMsg("flex");
+          setTimeout(() => {
+            setComments(res);
+            setDeleteMsg("none");
+          }, 2000);
         });
       });
     }
@@ -83,6 +88,9 @@ export default function Review() {
 
   return (
     <div className="review--review-unit">
+      <div id="delete-message" style={{ display: `${deleteMsg}` }}>
+        YOR MESSAGE WAS DELETED..FOREVER!
+      </div>
       <main>
         <h2>{reviewUnit.title}</h2>
         <img src={reviewUnit.review_img_url} alt={reviewUnit.title} />

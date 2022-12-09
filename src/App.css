@@ -8,6 +8,7 @@ a {
   color: silver;
 }
 a :hover {
+  color: rgb(169, 125, 180);
   background: rgb(66, 60, 52);
 }
 body {
@@ -217,7 +218,27 @@ body {
   align-self: center;
   margin-bottom: -1em;
 }
+
+#delete-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 7vh;
+  background-color: rgb(155, 86, 30);
+  color: #160b02;
+  font-weight: 800;
+  opacity: 0.6;
+  font-size: 1.2em;
+  position: fixed;
+  z-index: 10;
+}
+
 @media only screen and (min-width: 768px) {
+  #delete-message {
+    width: 20vw;
+  }
+
   .header--title {
     font-size: 3em;
   }
