@@ -1,18 +1,23 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../context/User";
+import { useEffect, useState } from "react";
 import { getReview } from "../tools/api";
 import Loading from "./Loading";
 import { postComment } from "../tools/api";
 
 export default function Comment() {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
   const { review_id } = useParams();
   const [reviewUnit, setReviewUnit] = useState([]);
   const [loading, setLoading] = useState(true);
   const [commentInput, setCommentInput] = useState("");
   const commentObj = {};
+
+  let user = "";
+  if (!sessionStorage.user) {
+    navigate("/");
+  } else {
+    user = sessionStorage.user;
+  }
 
   useEffect(() => {
     getReview(review_id).then((res) => {

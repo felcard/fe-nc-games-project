@@ -30,7 +30,7 @@ body {
   position: fixed;
   width: 100vw;
   background: rgb(58, 53, 46);
-  border-bottom: solid 1px rgb(66, 60, 52);
+  border-bottom: solid 1px rgb(131, 112, 86);
   padding-bottom: 0.5em;
 }
 .header--title {
@@ -114,7 +114,7 @@ body {
   max-height: 50vh;
   object-fit: cover;
 }
-.review--votes-color {
+#review--votes-color {
   font-size: 1.2em;
   color: rgb(156, 104, 156);
 }
@@ -123,10 +123,10 @@ body {
   text-align: right;
 }
 #review--comment--button {
-  border: solid 1px rgb(75, 66, 56);
+  border: solid 1px rgb(167, 132, 93);
 }
 .review--comments-box {
-  border: solid 1px rgb(90, 75, 58);
+  border: solid 1px rgb(167, 132, 93);
   text-align: left;
   padding: 0.4em;
 }
@@ -309,7 +309,7 @@ body {
   }
   .categories--categories-flex {
     padding-top: 0.5em;
-    border-top: solid 1px rgb(66, 60, 52);
+    border-top: solid 1px rgb(131, 112, 86);
     font-size: 0.9em;
     display: flex;
     justify-content: space-around;

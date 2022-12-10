@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
 import { deleteComment } from "../tools/api";
-import { useContext } from "react";
-import { UserContext } from "../context/User";
 import Error from "./Error";
 
 export default function Review() {
@@ -16,7 +14,14 @@ export default function Review() {
   const [vis, setVis] = useState("in-line");
   const [deleteMsg, setDeleteMsg] = useState("none");
 
-  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  let user = "";
+  if (!sessionStorage.user) {
+    navigate("/");
+  } else {
+    user = sessionStorage.user;
+  }
 
   useEffect(() => {
     getReview(review)
@@ -116,7 +121,7 @@ export default function Review() {
             className="fa-solid fa-circle-up"
             onClick={() => handleVote("up")}
           ></i>{" "}
-          <span className="review--votes-color">{votes}</span>{" "}
+          <span id="review--votes-color">{votes}</span>{" "}
           <i
             style={{ display: `${vis}` }}
             className="fa-solid fa-circle-down"

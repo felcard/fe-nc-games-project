@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../context/User";
+import { useEffect, useState } from "react";
 import { getUsers } from "../tools/api";
 import Loading from "./Loading";
 
-export default function Auth() {
-  const { setUser } = useContext(UserContext);
+export default function Auth({ setUser }) {
   const [inputUser, setInputUser] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +17,8 @@ export default function Auth() {
     e.preventDefault();
     const loggedUser = users.filter((user) => user.username === inputUser);
     if (loggedUser.length !== 0) {
-      setUser(loggedUser[0].username);
+      sessionStorage.setItem("user", loggedUser[0].username);
+      setUser(sessionStorage.user);
     } else {
       alert("Username doesn't exist. Please try again");
     }
