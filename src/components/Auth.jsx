@@ -17,7 +17,7 @@ export default function Auth({ setUser }) {
     e.preventDefault();
     const loggedUser = users.filter((user) => user.username === inputUser);
     if (loggedUser.length !== 0) {
-      sessionStorage.setItem("user", loggedUser[0].username);
+      sessionStorage.setItem("user", loggedUser[0].name);
       setUser(sessionStorage.user);
     } else {
       alert("Username doesn't exist. Please try again");
