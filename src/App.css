@@ -225,7 +225,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 7vh;
+  height: 12vh;
   background-color: rgb(155, 86, 30);
   color: #160b02;
   font-weight: 800;
@@ -233,6 +233,7 @@ body {
   font-size: 1.2em;
   position: fixed;
   z-index: 10;
+  margin-bottom: 30em;
 }
 #header--farewell-btn {
   color: rgb(240, 224, 203);
@@ -244,7 +245,7 @@ body {
 }
 @media only screen and (min-width: 768px) {
   #delete-message {
-    width: 20vw;
+    width: 38em;
   }
   .header--title {
     font-size: 3em;
