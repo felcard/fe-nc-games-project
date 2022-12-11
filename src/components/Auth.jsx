@@ -6,6 +6,7 @@ export default function Auth({ setUser }) {
   const [inputUser, setInputUser] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [alertStyle, setAlertStyle] = useState("none");
 
   useEffect(() => {
     getUsers().then((users) => {
@@ -20,7 +21,10 @@ export default function Auth({ setUser }) {
       sessionStorage.setItem("user", JSON.stringify(loggedUser[0]));
       setUser(loggedUser[0].name);
     } else {
-      alert("Username doesn't exist. Please try again");
+      setAlertStyle("flex");
+      setTimeout(() => {
+        setAlertStyle("none");
+      }, 2000);
     }
   };
 
@@ -30,9 +34,11 @@ export default function Auth({ setUser }) {
 
   return (
     <main className="auth-main">
+      <div className="alert-message" style={{ display: `${alertStyle}` }}>
+        Username doesn't exist. Please try again
+      </div>
       <form onSubmit={handleSubmit}>
         <h2>Please enter your username:</h2>
-        <h3>{"( Tutors enter grumpy19 )"}</h3>
         <label htmlFor={inputUser}>
           <input
             value={inputUser}

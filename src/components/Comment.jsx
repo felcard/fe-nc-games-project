@@ -11,6 +11,8 @@ export default function Comment() {
   const [loading, setLoading] = useState(true);
   const [commentInput, setCommentInput] = useState("");
   const commentObj = {};
+  const [alertStyle, setAlertStyle] = useState("none");
+  const [alertMessage, setAlertMessage] = useState("");
 
   let user = "";
   if (!sessionStorage.user) {
@@ -31,7 +33,11 @@ export default function Comment() {
     commentObj.username = user;
     commentObj.body = commentInput;
     if (commentInput === "") {
-      alert("You haven't entered a comment");
+      setAlertStyle("flex");
+      setAlertMessage("You haven't entered a comment");
+      setTimeout(() => {
+        setAlertStyle("none");
+      }, 2000);
     } else {
       postComment(review_id, commentObj)
         .then((res) => {
@@ -39,9 +45,13 @@ export default function Comment() {
           navigate(-1);
         })
         .catch(() => {
-          alert(
+          setAlertStyle("flex");
+          setAlertMessage(
             "We are really sorry but your precious comment was not posted. Please try again"
           );
+          setTimeout(() => {
+            setAlertStyle("none");
+          }, 3000);
         });
     }
   };
@@ -51,6 +61,9 @@ export default function Comment() {
   return (
     <div className="review--review-unit">
       <main>
+        <div className="alert-message" style={{ display: `${alertStyle}` }}>
+          {alertMessage}
+        </div>
         <h2 id="comment--title">Comment on this Review</h2>
         <h2>{reviewUnit.title}</h2>
         <img src={reviewUnit.review_img_url} alt={reviewUnit.title} />

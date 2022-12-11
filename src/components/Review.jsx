@@ -12,7 +12,8 @@ export default function Review() {
   const [loading, setLoading] = useState(true);
   const [votes, setVotes] = useState();
   const [vis, setVis] = useState("in-line");
-  const [deleteMsg, setDeleteMsg] = useState("none");
+  const [alertStyle, setAlertStyle] = useState("none");
+  const [alertMessage, setAlertMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ export default function Review() {
         setVotes((currVote) => {
           return currVote - 1;
         });
-        alert("Something went horribly wrong! I beg you please try again :)");
+        showAlert("Something went wrong! Please try to vote again :)");
       });
     } else {
       setVotes((currVote) => {
@@ -61,25 +62,36 @@ export default function Review() {
         setVotes((currVote) => {
           return currVote + 1;
         });
-        alert("Something went horribly wrong! I beg you please try again :)");
+        showAlert("Something went wrong! Please try to vote again :)");
       });
     }
   };
 
   const handleDelete = (id, author) => {
     if (user !== author) {
-      alert("it is not right to try and delete other people's comments!! :)");
+      showAlert(
+        "it is not right to try and delete other people's comments!!  :)"
+      );
     } else {
       deleteComment(id).then((res) => {
         getComments(review).then((res) => {
-          setDeleteMsg("flex");
+          setAlertStyle("flex");
+          setAlertMessage("YOR MESSAGE WAS DELETED..FOREVER!");
           setTimeout(() => {
             setComments(res);
-            setDeleteMsg("none");
-          }, 2000);
+            setAlertStyle("none");
+          }, 3000);
         });
       });
     }
+  };
+
+  const showAlert = (msg) => {
+    setAlertStyle("flex");
+    setAlertMessage(msg);
+    setTimeout(() => {
+      setAlertStyle("none");
+    }, 3000);
   };
 
   if (reviewUnit.msg) {
@@ -92,8 +104,8 @@ export default function Review() {
 
   return (
     <div className="review--review-unit">
-      <div id="delete-message" style={{ display: `${deleteMsg}` }}>
-        YOR MESSAGE WAS DELETED..FOREVER!
+      <div className="alert-message" style={{ display: `${alertStyle}` }}>
+        {alertMessage}
       </div>
       <main>
         <h2>{reviewUnit.title}</h2>
