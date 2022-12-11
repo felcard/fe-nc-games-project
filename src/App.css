@@ -92,11 +92,11 @@ body {
   object-fit: cover;
 }
 #reviews--grid {
-  margin-top: 13em;
+  margin-top: 14.5em;
 }
 .categories--categories-flex {
   padding-top: 0.5em;
-  border-top: solid 1px rgb(66, 60, 52);
+  border-top: solid 1px rgb(131, 112, 86);
   font-size: 0.8em;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -141,7 +141,7 @@ body {
   margin: 0.4em;
 }
 .review--review-unit h2 {
-  margin-top: 0.6em;
+  margin-top: 1.3em;
   text-transform: uppercase;
 }
 .review-unit--h2 {
@@ -177,6 +177,7 @@ body {
   margin-bottom: 1em;
 }
 #comment--title {
+  margin-bottom: -1.3em;
   color: rgb(143, 84, 96);
   text-shadow: 1px 1px #241717;
 }
@@ -233,12 +234,18 @@ body {
   position: fixed;
   z-index: 10;
 }
-
+#header--farewell-btn {
+  color: rgb(240, 224, 203);
+  width: 5em;
+  height: 1.5em;
+  padding-bottom: 0.1em;
+  cursor: pointer;
+  border: solid 1px rgb(82, 52, 34);
+}
 @media only screen and (min-width: 768px) {
   #delete-message {
     width: 20vw;
   }
-
   .header--title {
     font-size: 3em;
   }
@@ -247,6 +254,12 @@ body {
     font-size: 1.2em;
     margin-left: 1em;
     margin-bottom: -2em;
+  }
+  .header--farewell {
+    text-align: right;
+    font-size: 1.2em;
+    margin-right: 1.5em;
+    margin-bottom: -1em;
   }
   #reviews--grid {
     width: 100vw;
@@ -272,7 +285,7 @@ body {
     width: 50%;
   }
   .review-unit--h2 {
-    margin-top: 0.8em;
+    margin-top: 1.2em;
     font-size: 1.5em;
   }
   .review--headings {
@@ -322,7 +335,7 @@ body {
     justify-content: flex-end;
   }
   #categories--main-h4 {
-    margin-top: -1em;
+    margin-top: -1.5em;
   }
   #sorters {
     width: auto;

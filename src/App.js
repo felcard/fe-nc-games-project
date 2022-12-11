@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <nav id="nav">
-        <Header user={user} />
+        <Header user={user} setUser={setUser} />
         <Link to="/" id="reviews-link">
           Reviews
         </Link>
