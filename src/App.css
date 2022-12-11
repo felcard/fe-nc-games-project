@@ -336,7 +336,9 @@ body {
     justify-content: flex-end;
   }
   #categories--main-h4 {
-    margin-top: -1.5em;
+    margin-left: 1.2em;
+    text-align: left;
+    margin-top: -2em;
   }
   #sorters {
     width: auto;
