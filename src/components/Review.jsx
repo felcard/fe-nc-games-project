@@ -20,9 +20,8 @@ export default function Review() {
   if (!sessionStorage.user) {
     navigate("/");
   } else {
-    user = sessionStorage.user;
+    user = JSON.parse(sessionStorage.user).username;
   }
-
   useEffect(() => {
     getReview(review)
       .then((res) => {

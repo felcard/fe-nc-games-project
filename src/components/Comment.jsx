@@ -16,7 +16,7 @@ export default function Comment() {
   if (!sessionStorage.user) {
     navigate("/");
   } else {
-    user = sessionStorage.user;
+    user = JSON.parse(sessionStorage.user).username;
   }
 
   useEffect(() => {

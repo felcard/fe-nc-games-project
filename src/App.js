@@ -13,15 +13,13 @@ function App() {
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
   const [user, setUser] = useState(null);
-
   useEffect(() => {
-    if (sessionStorage.user) setUser(sessionStorage.user);
+    if (sessionStorage.user) setUser(JSON.parse(sessionStorage.user).name);
   }, []);
 
   if (!user) {
     return <Auth setUser={setUser} />;
   }
-
   return (
     <div className="App">
       <nav id="nav">
