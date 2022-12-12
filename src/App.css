@@ -225,7 +225,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 12vh;
+  padding: 1em;
   background-color: rgb(155, 86, 30);
   color: #160b02;
   font-weight: 800;
@@ -233,7 +233,8 @@ body {
   font-size: 1.2em;
   position: fixed;
   z-index: 10;
-  margin-bottom: 50vh;
+  left: 0;
+  top: 30vh;
 }
 #header--farewell-btn {
   color: rgb(240, 224, 203);
@@ -247,9 +248,6 @@ body {
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
-  .alert-message {
-    width: 38em;
-  }
   .header--title {
     font-size: 3em;
   }
