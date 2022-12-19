@@ -13,12 +13,16 @@ You can see the app deployed [here](https://nc-games-rating.netlify.app/).
 
 The app app was developed under node version v19.0.0
 
-### App browser routes
+## App browser routes
 
 **/** --> will display all reviews
+
 **/reviews** --> will display all reviews
+
 **/reviews/:review_id** --> will diplay an individual review with related comments
+
 **reviews/:review_id/comments** --> will bring up a form to post a comment on the selected review
+
 **reviews/categories/:category** --> will display reviews according to the specified category
 
-Thanks for coming by and stayed tuned for future improvements and enhancements.
+Thanks for visiting and stayed tuned for future improvements and enhancements.
