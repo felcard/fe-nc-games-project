@@ -9,13 +9,17 @@ import Comment from "./components/Comment";
 import Categories from "./components/Categories";
 import Error from "./components/Error";
 
+//////////CHANGE value of user in useState to null
+//////////////amend file review and comment for login fucntionality to work
+////people cant make comments under Test User
+
 function App() {
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    if (sessionStorage.user) setUser(JSON.parse(sessionStorage.user).name);
-  }, []);
+  const [user, setUser] = useState("test-user");
+  // useEffect(() => {
+  //   if (sessionStorage.user) setUser(JSON.parse(sessionStorage.user).name);
+  // }, []);
 
   if (!user) {
     return <Auth setUser={setUser} />;

@@ -14,12 +14,13 @@ export default function Comment() {
   const [alertStyle, setAlertStyle] = useState("none");
   const [alertMessage, setAlertMessage] = useState("");
 
-  let user = "";
-  if (!sessionStorage.user) {
-    navigate("/");
-  } else {
-    user = JSON.parse(sessionStorage.user).username;
-  }
+  let user = "grumpy19"; //make user equal to "" and uncomment if below to activate lovin functionality
+
+  // if (!sessionStorage.user) {
+  //   navigate("/");
+  // } else {
+  //   user = JSON.parse(sessionStorage.user).username;
+  // }
 
   useEffect(() => {
     getReview(review_id).then((res) => {

@@ -17,12 +17,12 @@ export default function Review() {
 
   const navigate = useNavigate();
 
-  let user = "";
-  if (!sessionStorage.user) {
-    navigate("/");
-  } else {
-    user = JSON.parse(sessionStorage.user).username;
-  }
+  let user = "Test User"; //make user equal to "" and uncomment if below to activate lovin functionality
+  // if (!sessionStorage.user) {
+  //   navigate("/");
+  // } else {
+  //   user = JSON.parse(sessionStorage.user).username;
+  // }
   useEffect(() => {
     getReview(review)
       .then((res) => {
