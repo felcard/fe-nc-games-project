@@ -14,7 +14,7 @@ export default function Comment() {
   const [alertStyle, setAlertStyle] = useState("none");
   const [alertMessage, setAlertMessage] = useState("");
 
-  let user = "grumpy19"; //make user equal to "" and uncomment if below to activate lovin functionality
+  let user = "grumpy19"; //make user equal to "" and uncomment if below to activate login functionality
 
   // if (!sessionStorage.user) {
   //   navigate("/");

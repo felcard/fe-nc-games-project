@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Reviews from "./components/Reviews";
 import Auth from "./components/Auth";
@@ -8,7 +8,7 @@ import Review from "./components/Review";
 import Comment from "./components/Comment";
 import Categories from "./components/Categories";
 import Error from "./components/Error";
-
+//import useEffect
 //////////CHANGE value of user in useState to null
 //////////////amend file review and comment for login fucntionality to work
 ////people cant make comments under Test User

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getComments, getReview, updateVotes } from "../tools/api";
 import Loading from "./Loading";
 import { deleteComment } from "../tools/api";
@@ -14,8 +14,8 @@ export default function Review() {
   const [vis, setVis] = useState("in-line");
   const [alertStyle, setAlertStyle] = useState("none");
   const [alertMessage, setAlertMessage] = useState("");
-
-  const navigate = useNavigate();
+  //import useNavigate
+  //const navigate = useNavigate();
 
   let user = "Test User"; //make user equal to "" and uncomment if below to activate lovin functionality
   // if (!sessionStorage.user) {
